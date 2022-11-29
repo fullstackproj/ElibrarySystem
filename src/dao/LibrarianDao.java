@@ -16,12 +16,11 @@ public class LibrarianDao {
                 
 		try{
 			Connection con=DB.getCon();
-			PreparedStatement ps=con.prepareStatement("insert into e_librarian(id,name,email,password,mobile) values(?,?,?,?,?)");
-			ps.setString(1,"1");
-                        ps.setString(2,bean.getName());
-			ps.setString(3,bean.getEmail());
-			ps.setString(4,bean.getPassword());
-			ps.setLong(5,bean.getMobile());
+			PreparedStatement ps=con.prepareStatement("insert into e_librarian(name,email,password,mobile) values(?,?,?,?)");
+            ps.setString(1,bean.getName());
+			ps.setString(2,bean.getEmail());
+			ps.setString(3,bean.getPassword());
+			ps.setLong(4,bean.getMobile());
 			status=ps.executeUpdate();
 			con.close();
 			
